@@ -1,7 +1,7 @@
 Summary: Library for error values used by GnuPG components
 Name: libgpg-error
 Version: 1.7
-Release: 3%{?dist}
+Release: 4%{?dist}
 URL: ftp://ftp.gnupg.org/gcrypt/libgpg-error/
 Source0: ftp://ftp.gnupg.org/gcrypt/libgpg-error/%{name}-%{version}.tar.bz2
 Source1: ftp://ftp.gnupg.org/gcrypt/libgpg-error/%{name}-%{version}.tar.bz2.sig
@@ -47,6 +47,7 @@ autoheader
 autoconf
 
 %build
+LDFLAGS="$LDFLAGS -Wl,-z,relro"; export LDFLAGS
 %configure --disable-static --disable-rpath --disable-languages
 make %{?_smp_mflags}
 
@@ -108,6 +109,9 @@ rm -fr $RPM_BUILD_ROOT
 %{_datadir}/aclocal/gpg-error.m4
 
 %changelog
+* Fri Aug  5 2011 Nalin Dahyabhai <nalin@redhat.com> - 1.7-4
+- build shared libraries with partial RELRO support (#727291)
+
 * Thu Feb 25 2010 Nalin Dahyabhai <nalin@redhat.com> - 1.7-3
 - turn off common lisp bindings the right way
 - drop finger output
