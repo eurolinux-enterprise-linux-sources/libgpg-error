@@ -1,7 +1,7 @@
 Summary: Library for error values used by GnuPG components
 Name: libgpg-error
 Version: 1.12
-Release: 1%{?dist}
+Release: 3%{?dist}
 URL: ftp://ftp.gnupg.org/gcrypt/libgpg-error/
 Source0: ftp://ftp.gnupg.org/gcrypt/libgpg-error/%{name}-%{version}.tar.bz2
 Source1: ftp://ftp.gnupg.org/gcrypt/libgpg-error/%{name}-%{version}.tar.bz2.sig
@@ -104,6 +104,12 @@ rm -fr $RPM_BUILD_ROOT
 %{_datadir}/aclocal/gpg-error.m4
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.12-3
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.12-2
+- Mass rebuild 2013-12-27
+
 * Fri Aug 23 2013 Tomáš Mráz <tmraz@redhat.com> 1.12-1
 - new upstream release
 
